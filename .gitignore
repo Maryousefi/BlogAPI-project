@@ -1,3 +1,8 @@
-.env
+# Python
 __pycache__/
-*.sqlite3
+*.py[cod]
+venv/
+.env
+
+# Docker
+*.log
