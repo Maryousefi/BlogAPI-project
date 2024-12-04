@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from app import models, schemas
 
-# CRUD operations for blog posts
+#CRUD operations for blog posts
 def create_blog(db: Session, blog: schemas.BlogPostCreate, author_id: int):
     db_blog = models.BlogPost(**blog.dict(), author_id=author_id)
     db.add(db_blog)
@@ -22,7 +22,7 @@ def delete_blog(db: Session, blog_id: int):
         db.commit()
     return db_blog
 
-# CRUD operations for comments
+#CRUD operations for comments
 def create_comment(db: Session, comment: schemas.CommentCreate, author_id: int, blog_post_id: int):
     db_comment = models.Comment(**comment.dict(), author_id=author_id, blog_post_id=blog_post_id)
     db.add(db_comment)
@@ -33,9 +33,9 @@ def create_comment(db: Session, comment: schemas.CommentCreate, author_id: int, 
 def get_comments_by_blog(db: Session, blog_post_id: int):
     return db.query(models.Comment).filter(models.Comment.blog_post_id == blog_post_id).all()
 
-# CRUD operations for users
+#CRUD operations for users
 def create_user(db: Session, user: schemas.UserCreate):
-    hashed_password = user.password  # Add hashing here (e.g., bcrypt)
+    hashed_password = user.password  
     db_user = models.User(username=user.username, hashed_password=hashed_password, role=user.role)
     db.add(db_user)
     db.commit()

@@ -1,7 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
-from app import crud, schemas, database, auth
+from app import crud, schemas, database
+from app.auth_utils import get_current_user  
 
 router = APIRouter()
 
@@ -10,7 +11,7 @@ def create_comment(
     comment: schemas.CommentCreate,
     blog_post_id: int,
     db: Session = Depends(database.get_db),
-    current_user=Depends(auth.get_current_user)
+    current_user=Depends(get_current_user)  
 ):
     return crud.create_comment(db, comment, author_id=current_user["id"], blog_post_id=blog_post_id)
 

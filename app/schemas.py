@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from typing import List
 from datetime import datetime
 
-# Blog schemas(User Roles and Permissions)
+#blog schemas(User Roles and Permissions)
 class BlogPostBase(BaseModel):
     title: str
     content: str
@@ -19,7 +19,7 @@ class BlogPost(BlogPostBase):
     class Config:
         orm_mode = True
 
-# User schemas
+#user schemas
 class UserBase(BaseModel):
     username: str
     role: str
@@ -33,7 +33,7 @@ class User(UserBase):
     class Config:
         orm_mode = True
 
-# Comment schemas
+#comment schemas
 class CommentBase(BaseModel):
     content: str
 

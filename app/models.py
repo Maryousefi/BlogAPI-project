@@ -18,7 +18,7 @@ class BlogPost(Base):
     comments = relationship("Comment", back_populates="blog_post")
 
 
-#  role-based access: "admin", "author", or "reader"
+#role-based access: "admin", "author", or "reader"
 class User(Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True, index=True)
