@@ -17,7 +17,7 @@ The Blog Platform API is a RESTful API that allows users to manage blog posts, i
 
 ## Installation
 1. Clone the repository:
-   git clone https://github.com/your-username/blog-platform-api.git
+   git clone https://github.com/Maryousefi/BlogAPI-project.git
 2. Navigate to the project directory:
    cd blog-platform-api
 3. Create a virtual environment:
